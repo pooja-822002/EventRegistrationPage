@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIT Event Registration</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // To validate atleast 5 unique Characters in the password we use Js
+        Array.prototype.contains = function(v){
+            for(var i=0; i< this.length; i++){
+                if(this[i] === v) return true;
+            }
+            return false;
+        }
+        Array.prototype.unique = function(){
+            var arr = [];
+            for(var i=0; i< this.length; i++){
+                if(!arr.contains(this[i])){
+                    arr.push(this[i]);
+                }
+            }
+            return arr;
+        };
+
+        function validateForm(){
+            //wrong pwd regex: ^(?=(.*[A-Z]){3})(?=(.*[a-z]){3})(?=(.*\d){3})(?=(.*[~!@#\$%^\-_=+\[\]\{\}/;:,\.\?*]){3})(?!.*\s).{10,100}$"
+            var pwd = document.registration.pwd.value;
+            let regex1 = /(?=(.*[A-Z]))(?=(.*[a-z]))(?=(.*\d))(?!.*\s).{10,100}/i;
+            let regex2 = /(?=(.*[A-Z]))(?=(.*[a-z]))(?=(.*[~!@#\$%^\-_=+\[\]\{\}/;:,\.\?*]))(?!.*\s).{10,100}/i;
+            let regex3 = /(?=(.*[A-Z]))(?=(.*[~!@#\$%^\-_=+\[\]\{\}/;:,\.\?*]))(?=(.*\d))(?!.*\s).{10,100}/i;
+            let regex4 = /(?=(.*[a-z]))(?=(.*[~!@#\$%^\-_=+\[\]\{\}/;:,\.\?*]))(?=(.*\d))(?!.*\s).{10,100}/i;
+            
+            if(((regex1.test(pwd)) || (regex2.test(pwd)) || (regex3.test(pwd)) || (regex4.test(pwd))) && (pwd.split("").unique().length >= 5)){
+                return true;
+            }else{
+                alert("Password should have 5 unique characters and atleast 3 of the following: uppercase, lowercase, numeric or spl character");
+                return false;
+            }
+        };
+        
+    </script>
+</head>
+<body>
+    <div class="card">
+        <div class="head">
+            <img src="LOGO.png" id = "logo">
+            <div id="heading">
+                <h1>graVITas Events</h1>
+            </div>
+        </div>
+        <div class="container">
+            <h2 class="header">Register now</h2>
+            <form name="registration" action='success.html' onsubmit="return validateForm()" method="post">
+                <div class="inputs">
+                    <div class="inss">
+                        <input type="text" name="name" placeholder="  Enter your Name" required><br>
+                        <input type="Date" placeholder="Enter your DOB" required><br>
+                        <input type="text" placeholder="Enter 5 digit zipcode" pattern=".{5}" title="Zip of 5 Characters" required><br>
+                        <input type="email" placeholder="Enter your student mailid" pattern="[a-z]+[\.][a-z0-9]+@vitstudent.ac.in" title="Your VIT email" required><br>
+                        <input type="password" name="pwd" id="pwd" placeholder="password"  title="password" required><br>
+                        <input type="text" name="mobile" placeholder="Mobile number" pattern="\d{10}" title="Mobile number of 10 digits" required><br>
+                    </div>    
+                    <input type="submit" value="submit">
+                </div>    
+            </form>
+       </div>     
+    </div>
+</body>
+</html>

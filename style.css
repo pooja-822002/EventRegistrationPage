@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Roboto';
+}
+body{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    background: #342D7E;
+}
+.container{
+
+position:relative;
+max-width:900px;
+width:100%;
+border-radius: 6px;
+overflow:hidden;
+padding: 30px;
+margin: 30px auto;
+background-color: #afdcec;
+box-shadow: 0 5px 10px -8px rgb(197 189 245);
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
+.head {
+    overflow: hidden;
+    background: #afdcec;
+    width: 1550px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+#logo {
+    width: 260px;
+    height: 120px;
+    margin-left: 14px;
+}
+
+#heading {
+    
+    color: #342D7E;
+    text-align: center;
+    align-items: center;
+    margin-left: 25px;
+}
+
+.header{
+    font-size: 30px;
+    font-weight: 600 ;
+    color:#342D7E;
+}
+
+.container form{
+    position:relative;
+    margin-top: 18px;
+    min-height: 490px;
+    background-color: aliceblue;
+    align-items: center;
+}
+
+
+.inputs{
+    margin-left: 35%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+ 
+input[type=text], input[type=date], input[type=password], input[type=email]{
+    margin: 12px;
+    padding: 10px;
+    width: 40%;
+    cursor:pointer;
+    border:none;
+    border-bottom: #342D7E;
+    
+}
+
+input[type=submit]{
+
+    width: 45%;
+    height: 50px;
+    margin-top: 12px;
+    border: none;
+    border-radius: 12px;
+    color: aliceblue;
+    background-color: #342D7E;
+    font-weight: 700;
+}
+
+@media (max-width: 750px) {
+    .card .head {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .card .container form .inputs .inss {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .card .container form .inputs label {
+        margin-bottom: 5px;
+    }
+    .card .container form .inputs {
+        display: flex;
+        flex-direction: row;
+    }
+}
